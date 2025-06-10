@@ -1,0 +1,23 @@
+BJT PP
+
+vcc vcc 0 15
+ 
+.param Rb1=100k
+
+rb1 vcc b {Rb1}
+rb2 b 0 {150k - Rb1}
+
+q1 c b e bc107
+
+.model bc107 NPN(Is=40.72f  Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
+ + Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
+ + Mjc=.3821 Tr=114n Xtb=1.5)
+
+ rc c vcc 1.5k
+ re e 0 750 
+
+ .dc param Rb1 90k 130k 10
+ .probe
+
+
+

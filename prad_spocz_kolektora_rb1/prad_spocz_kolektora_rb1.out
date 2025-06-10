@@ -1,0 +1,102 @@
+
+**** 06/10/25 23:02:59 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ BJT PP
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+vcc vcc 0 15
+ 
+.param Rb1=100k
+
+rb1 vcc b {Rb1}
+rb2 b 0 {150k - Rb1}
+
+q1 c b e bc107
+
+.model bc107 NPN(Is=40.72f  Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
+ + Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
+ + Mjc=.3821 Tr=114n Xtb=1.5)
+
+ rc c vcc 1.5k
+ re e 0 750 
+
+ .dc param Rb1 90k 130k 10
+ .probe
+
+
+
+
+**** 06/10/25 23:02:59 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ BJT PP
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               bc107           
+               NPN             
+       LEVEL    1            
+          IS   40.720000E-15 
+          BF  407            
+          NF    1            
+         VAF   21.03         
+         IKF    1            
+         ISE   40.720000E-15 
+          NE    1.305        
+          BR    1            
+          NR    1            
+         IKR    3.726        
+         ISC  594.800000E-12 
+          NC    2.033        
+         ISS    0            
+          RE    0            
+          RC    1.393        
+         CJE   12.500000E-12 
+         VJE     .5391       
+         MJE     .4869       
+         CJC    6.000000E-12 
+         VJC     .75         
+         MJC     .3821       
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          TF  441.100000E-12 
+          TR  114.000000E-09 
+         XTB    1.5          
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+
+          JOB CONCLUDED
+
+**** 06/10/25 23:02:59 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ BJT PP
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .17
+

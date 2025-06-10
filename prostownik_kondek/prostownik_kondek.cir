@@ -1,0 +1,12 @@
+Prostownik
+
+vgen 1 0 sin 0 12 50
+d1 1 2 dioda
+.model dioda d
+rload 2 0 100
+
+cfiltr 2 0 1500u
+
+.tran 1n 300m 100m 10u
+.probe
+

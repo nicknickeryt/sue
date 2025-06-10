@@ -1,0 +1,87 @@
+
+**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ Prostownik
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+vgen 1 0 sin 0 12 50
+d1 1 2 dioda
+.model dioda d
+rload 2 0 100
+
+cfiltr 2 0 1500u
+
+.tran 1n 300m 100m 10u
+.probe
+
+
+**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ Prostownik
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               dioda           
+          IS   10.000000E-15 
+
+
+**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ Prostownik
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(    1)    0.0000  (    2)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    vgen         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ Prostownik
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .55
+
