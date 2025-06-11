@@ -1,5 +1,5 @@
 
-**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:46:15 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Prostownik
 
@@ -23,7 +23,7 @@ cfiltr 2 0 1500u
 .probe
 
 
-**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:46:15 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Prostownik
 
@@ -40,7 +40,7 @@ cfiltr 2 0 1500u
           IS   10.000000E-15 
 
 
-**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:46:15 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Prostownik
 
@@ -71,7 +71,7 @@ cfiltr 2 0 1500u
 
           JOB CONCLUDED
 
-**** 06/10/25 23:05:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:46:15 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Prostownik
 
@@ -83,5 +83,5 @@ cfiltr 2 0 1500u
 
 
 
-  Total job time (using Solver 1)   =         .55
+  Total job time (using Solver 1)   =         .56
 

@@ -1,5 +1,5 @@
 
-**** 06/10/25 23:06:25 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:44:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Zabezpieczenie termiczne
 
@@ -37,6 +37,12 @@ R2 2 3 1k
 R3 vcc 2 82k
 R4 vcc 1 2.2k
 
+* przemiatamy Rezystor
+* szukamy punktu gdzie Vout jest rowne 90% wartosci napiecia [10.44V], gdy Rezystor ma 400Ohm (20 st. C jako temp. pokojowa) [11.607
+* jak znajdziemy punkt gdzie napiecie ma 10.44V to szukamy X czyli wartosci Rezystora
+* wychodzi 1016.2Ohm
+* jako ze wzor to Rezystor = czulosc * temperatura, gdzie czu³oœæ to 20 [Ohm/st. C],to
+* szukana temperatura to Rezystor / czulosc czyli 1016.2/20 = 50.8 [st. C]
 .param Rezystor 100
 R5 3 0 {Rezystor}
 
@@ -46,7 +52,7 @@ R5 3 0 {Rezystor}
 
 .end
 
-**** 06/10/25 23:06:25 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:44:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Zabezpieczenie termiczne
 
@@ -68,7 +74,7 @@ R5 3 0 {Rezystor}
          CJO  150.000000E-12 
 
 
-**** 06/10/25 23:06:25 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:44:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Zabezpieczenie termiczne
 
@@ -129,7 +135,7 @@ R5 3 0 {Rezystor}
 
           JOB CONCLUDED
 
-**** 06/10/25 23:06:25 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+**** 06/11/25 01:44:44 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
 
  Zabezpieczenie termiczne
 
