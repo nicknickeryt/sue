@@ -1,0 +1,36 @@
+Pseudostatystyka RC
+
+vcc vcc 0 15
+
+rb1 vcc b RB1MC 82k
+rb2 b 0 RB2MC 27k
+
+.model RB1MC RES R=1 lot=10%
+.model RB2MC RES R=1 lot=10%
+
+q1 c b e bc107
+
+rc c vcc 1.5k
+re e 0 750
+.op
+
+vin in 0 ac 1 sin 0 10m 10k
+cin in b 1u
+ce e 0 100u
+cout c out 1u
+rload out 0 100k
+
+.ac dec 1 1k 1MEG
+.mc 100 ac V(0) ymax output all
+
+.probe
+
+.model bc107 NPN(Is=40.72f  Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
+ + Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
+ + Mjc=.3821 Tr=114n Xtb=1.5)
+
+.end
+
+;Nie mam pojêcia jak to dzia³a ok. To jest por¹bane
+;No ale teoretycznie coœ jest
+;No ale ogolnie Performance Analysis => Wizard => Next => ConversionGain => V(out), V(in) => Next => mamy histogram => szukamy minimum (wychodzi 152.8)
