@@ -1,0 +1,40 @@
+
+**** 06/11/25 01:31:29 ******* PSpice Lite (April 2011) ******* ID# 10813 ****
+
+ BJT MS
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+vcc vcc 0 15
+vin in 0 AC 1
+c1 in b 100n
+c1 in b 100n
+
+ERROR(ORPSIM-15089): Can not re-define c1. c1 is either a system defined variable or has already been defined
+---$
+ERROR(ORPSIM-16371): Extra text on line
+
+rb1 vcc b 67k
+rb2 b 0 33k
+
+q1 c b e bc107
+
+.model BC107 NPN(Is=40.72f  Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
+ + Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
+ + Mjc=.3821 Tr=114n Xtb=1.5)
+
+ rc c vcc 1.5k
+ re e 0 750
+ ce e 0 1000u
+
+ c2 c out 100n
+ rload out 0 1g
+
+ .ac dec 100 10 1MEG
+
