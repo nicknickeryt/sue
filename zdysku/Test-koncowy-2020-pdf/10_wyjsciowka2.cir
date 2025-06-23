@@ -1,0 +1,21 @@
+stabilnosc
+
+vwe 1 0 ac 1
+e1 2 0 laplace {v(1)}={ku0/((1+s/1.58k)*(1+s/15.8k)*(1+s/158k))}
+.param ku0=100k
+.step dec param ku0 10 10k 12
+.ac dec 10 1 100g
+.probe
+.end
+
+; troche bardziej skomplikowane, bo wiele parametrow
+; 1. Perf. analysis
+; 2. Wizard
+; 3. GainMargin
+; 4. Phase trace: P(V(2))
+; 5. Magnitude trace in dB: vdb(2)
+
+; I szukamy:
+; 6. Cursor -> sea forw lev(-10)
+
+; Wynik: ok 387.53

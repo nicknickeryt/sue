@@ -1,0 +1,30 @@
+zaawansowane 1
+
+.model BC107 NPN(Is=40.72f Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
++ Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
++ Mjc=.3821 Tr=114n Xtb=1.5 )
+
+V vcc 0 30
+
+Q1 vcc 1 out BC107
+Q2 1 2 0 BC107
+R1 out 0 1k
+R2 2 3 1k
+R3 vcc 2 82k
+R4 vcc 1 2.2k
+
+.param opornik = 1k
+
+R5 3 0 {opornik}
+
+.dc param opornik 100 2k 10
+
+.probe
+
+
+; R5 = 18*temp
+; temp = R5/18
+
+; sea forw lev(13)
+; wychodzi ze opornik = 967.177
+; temp = 967.177/18 = 53,73

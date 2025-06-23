@@ -1,0 +1,21 @@
+BJT PP
+Vcc vcc 0 15
+
+.param opornik 1
+
+rb1 vcc b {opornik}
+rb2 b 0 {150k - opornik}
+
+
+q1 c b e bc107
+.model BC107 NPN(Is=40.72f Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
++ Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
++ Mjc=.3821 Tr=114n Xtb=1.5 )
+rc vcc c 1.5k
+re e 0 750
+
+.dc param opornik 1k 150k 100
+.probe
+
+; Nie no serio mam juz dosc tego zadania xdd
+; 135.859 [kOhm]

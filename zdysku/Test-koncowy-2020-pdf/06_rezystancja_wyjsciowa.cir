@@ -1,0 +1,37 @@
+BJT MS
+
+vcc vcc 0 15
+;vin in 0 ????
+
+;vin in 0 0
+rin in 0 1m ; zworka (no, prawie)
+;vin in 0 0  ; mozna tez taka zworke zrobic
+;vin in 0 ac 0  ; albo i taka
+
+c1 in e 100u
+rb1 vcc b 67k
+rb2 b 0 33k
+cb b 0 100u
+q1 c b e bc107
+.model BC107 NPN(Is=40.72f Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
++ Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
++ Mjc=.3821 Tr=114n Xtb=1.5 )
+rc c vcc 1.5k
+re e 0 750
+c2 c out 100n
+
+;rload out ???? ; wywalic lub dac 1G
+vout out 0 ac 1
+
+; Jak sie liczy rezystancje wyjsciowa?
+; 1. Wymuszenie na wyjsciu
+; 2. Zwarcie wejscia
+; 3. Policzenie V(out)/I(out)
+; 4. Fajrant
+
+.ac dec 100 10 1G
+.probe
+
+; Uwaga, najpierw nalezy zbadac uzyteczny zakres czesototliwosci! To jest caly czas ten sam uklad wiec wiemy ze ok. 10kHz juz jest uzyteczny
+
+; Wynik: 1153Ohm dla 10kHz

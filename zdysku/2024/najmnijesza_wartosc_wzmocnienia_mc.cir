@@ -1,0 +1,53 @@
+monte carlo <333 wszyscy je kochamy
+
+vcc vcc 0 15
+
+rb1 vcc b r1MC 82k
+rb2 b 0 r2MC 27k
+
+.model r1MC Res R=1 lot=10%
+.model r2MC Res R=1 lot=10%
+
+q1 c b e bc107
+
+rc c vcc 1.5k
+re e 0 750
+.op
+
+vin in 0 ac 1 sin 0 10m 10k
+cin in b 1u
+ce e 0 100u
+cout c out 1u
+rload out 0 100k
+
+
+.model bc107 NPN(Is=40.72f  Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
+ + Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
+ + Mjc=.3821 Tr=114n Xtb=1.5)
+
+.ac dec 100 10 1G
+.mc 100 ac V(0) ymax output all
+.probe
+
+; Performance analysis -> Wizard -> ConvGain -> V(out), V(in) -> Minimum
+; Wynik: 152.8
+
+; Zapamiêtaæ:
+; Modelowanie oporników
+; R1 V 0 MODEL 47k
+; .model MODEL Res R=1 lot=10%
+
+; te nazwy sa istotne; Res oznacza model rezystora, R=1 oznacza rezystancje, a lot=10% tolerancje (jakby nie moglo nazywac sie tol XDDD)
+; Generalnie wartosc rezystora (47k powyzej) mnozy sie razy wartosc modelu MODEL (R=1)
+; Wiec mozna takie cos robic na dwa sposoby - taki jak ja zapodalem albo podac R1 = 1 a model MODEL Res R = 82k - to to samo!
+
+; Nastepnie analiza ac - zwykla, zadnych udziwnien, po prostu .ac DEC KROK CZ.POCZATKOWA CZ.KONCOWA
+; Najwazniejszy krok Monte Carlo:
+
+; .mc 100 AC V(0) ymax output all
+
+; .mc - analiza monte carlo
+; 100 - ilosc losowan
+; AC - no analiza AC, wtedy wymaga podania argumentu V, mozna zrobic DC i ona nie wymaga tego
+; V(0) - nie mam pojecia co to jest ale trzeba podac jakis wezel, czasem to ma znaczenie jaki xdd
+; ymax output all - standardzik, taka trojeczka jak clc clear close all to jest wszedzie

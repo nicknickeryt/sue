@@ -1,0 +1,30 @@
+Wzmacniacz (Rg=200)
+
+vcc vcc 0 15
+vin in 0 sin 0 7m 5k ; sinus 5khz
+rgen in we 200
+cin we b 1u
+rb1 vcc b 82k
+rb2 b 0 27k
+q1 c b e bc107
+.model BC107 NPN(Is=40.72f Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
++ Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
++ Mjc=.3821 Tr=114n Xtb=1.5 )
+rc c vcc 750
+re e 0 750
+ce e 0 100u
+cout c out 1u
+rload out 0 100k
+
+.tran 1u 3m 2m 1u
+.four 5k V(rload)
+
+;.probe
+
+; Nalezy ustawic
+; vin in 0 sin 0 7m 5k - czyli sinus 5kHz, amplitude dobrac empirycznie - pozmieniac
+; .tran 1u 3m 2m 1u - po prostu analiza transient, odpalic .probe i zobaczyc czy wyglada fajnie
+; .four 5k V(rload) - analiza fourierowska dla harmonicznej postawowej na wyjsciu (nie wiedziec czemu V(out) nie dziala, ale V(rload) to to samo!)
+
+; W output file .out na dole bedzie TOTAL HARMONIC DISTORTION ... PERCENT
+; Dla 7 mV THD < 5% :))

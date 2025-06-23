@@ -1,0 +1,21 @@
+prostownik
+
+vgen 1 0 sin 0 12 50
+d1 1 2 dioda
+.model dioda d
+rload 2 0 100
+
+cfiltr 2 0 1500u
+
+.tran 1n 300m 100m 10u
+
+.probe
+
+; Lewym myszy, cursor MAX
+; Prawym myszy, cursor MIN
+; patrzymy na Y1-Y2
+; Wynik: minimum 1500u (wtedy delta y = 1.28)
+
+; Zapamiêtaæ:
+; .tran KROK_PRINT CZAS_KONCA CZAS_POCZATKU KROK_OBLICZEN
+; BARDZO WAZNE, istotna kolejnosc, czas poczatku musi byc odpowiednio duzy zeby stan byl ustalony, no i krok obliczen musi byc odpowiednio maly!

@@ -1,0 +1,40 @@
+xd.cir
+
+*Okreslic na podstawie wynikow analizy stalopradowej zaleznosc wzmocnienia roznicowego od
+*wartosci pradu "ogona" (iee). Dobrac iee tak aby k_ur bylo rowne -150.
+
+
+vcc vcc 0 15
+vee vee 0 -15
+rc1 vcc c1 4.7k
+rc2 vcc c2 4.7k
+q1 c1 b1 e t1
+q2 c2 b2 e t1
+
+Vin1 b1 0 dc 0.001 ; tu wazne zeby Vin bylo bliskie 0 (czemu?)
+Ein2 b2 0 b1 0 -1
+
+; Ustawienie parametru pradu
+.param I = 1m
+; Prad Iee na dole, wartosc jako parametr
+iee e vee {I}
+
+
+.model t1 NPN(Is=7.049f Xti=3 Eg=1.11 Vaf=116.3 Bf=375.5 Ise=7.049f Ne=1.281 Ikf=4.589 Nk=.5
++ Xtb=1.5 Br=2.611 Isc=121.7p Nc=1.865 Ikr=5.313 Rc=1.464 Cjc=5.38p Mjc=.329 Vjc=.6218 Fc=.5
++ Cje=11.5p Mje=.2717 Vje=.5 Tr=10n Tf=451p Itf=6.194 Xtf=17.43 Vtf=10)
+
+; Przemiatanie parametru pradu
+.dc param I 0.1m 15m 0.1m
+.probe
+
+; Odpowiedz; 1.714mA
+
+; Trzeba wyscwietlic zaleznosc V(c1,c2)/V(b1,b2)
+; Czyli kur
+
+; Zapis rownowazny: ( V(c1) - V(c2) )/( V(b1) - V(b2) )
+
+; Sea forw lev(-150)... i odczytujemy wartosc pradu na OX
+
+; To bylo trudne ale dlatego ze gosciu pozmienial cos w kodzie czego nie trzeba bylo zmieniac ig :))

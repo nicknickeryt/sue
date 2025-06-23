@@ -1,0 +1,34 @@
+BJT MS
+
+vcc vcc 0 15
+vin in 0 ac 1
+c1 in e 100u
+rb1 vcc b 67k
+rb2 b 0 33k
+cb b 0 100u
+q1 c b e bc107
+.model BC107 NPN(Is=40.72f Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726
++ Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p
++ Mjc=.3821 Tr=114n Xtb=1.5 )
+rc c vcc 1.5k
+re e 0 750
+c2 c out 100n
+rload out 0 1g
+
+.ac dec 10 1 100meg
+.probe
+
+; Po prostu analiza AC
+; .ac DEC krok cz.startowa cz.koncowa
+; szukamy -3db dla poczatku pasma!
+; -3db - spadek 1.41
+; w pasmie p.cz (uzytecnzych czestotliwosci) mamy wzmocnienie 221 (wykres V(out)/V(in) LUB Evaluate Measurement -> ConversionGain(V(out), V(in)))
+; Wiec szukamy gdzie bedzie amplituda 221/1.41 = 156.7
+; Mozna sea forw lev(156.7)
+; Mozna tez Evaluate Measurement - > 3db cutoff highpass (V(out)) <- tak, highpass, bo szukamy jakby dla filtru highpass ktory ma cutoff w dolnej czesci pasma!
+
+; Zapamietac:
+; -3dB -> spadek 1.41
+; Przydatne rzeczy ConversionGain, 3db highpass
+; ,ac DEC krok f.pocz. f.konc
+; zrodlo wejsciowe in AC 1!!!
