@@ -1,0 +1,20 @@
+margines fazy
+
+.param ku0 = 1
+
+vwe 1 0 ac 1	
+e1 2 0 laplace {v(1)}={ku0/((1+s/1.58k)*(1+s/158k)*(1+s/158k))}
+
+*.dc param ku0 1 10000 1
+
+.step dec param ku0 10 1k 100
+
+.ac dec 10 1 1g
+
+.probe
+
+; cos duzo trzeba bylo dopisac
+
+; perf analysis -> phase margin (vdb(2), p(v(2)))
+
+; wynik ok 79.3
