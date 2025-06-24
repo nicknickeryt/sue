@@ -1,0 +1,28 @@
+Komparator
+
+.subckt opamp 1 2 3
+e1 33 0 1 2 200k
+ebuf 3 0 table {v(33)} = (-12 -12 12 12)
+.ends
+
+.param opornik = 1k
+
+x inp inn out opamp
+
+vcc vcc 0 12
+R1 vcc inp {opornik}; interesuje nas R1
+R2 inp 0 {40k - opornik}; suma 40k!
+ 
+vtest inn 0 6.3; ustawiamy vtest na stale napiecie: 6.3V lub 5.7V w zaleznosci od tresci zadania!
+
+; przemiatanie zgodnie z warunkami zadania, kazdy rezystor nie mniejszy niz 10k
+
+;.dc param opornik 10k 30k 1k
+.step param opornik 10k 30k 1k
+.dc vtest 0 12 0.1
+
+.probe
+.end
+
+; Wynik: 19k (vtest = 6.3V)
+;		 21k (vtest = 5.7V)
