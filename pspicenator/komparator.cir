@@ -1,0 +1,20 @@
+Komparator
+
+.subckt opamp 1 2 3
+e1 33 0 1 2 200k
+ebuf 3 0 table {v(33)} = (-12 -12 12 12)
+.ends
+
+x inp inn out opamp
+
+vcc vcc 0 12
+
+.param opornik = 1
+
+R1 vcc inp  {opornik}
+R2 inp 0 {40k - opornik}
+ 
+vtest inn 0 6.3
+
+.dc param opornik 15k 25k 1k
+.probe

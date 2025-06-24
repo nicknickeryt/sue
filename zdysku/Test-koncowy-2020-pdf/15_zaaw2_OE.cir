@@ -1,5 +1,7 @@
 Wzmacniacz (Rg=200)
 
+;.param napiecie 1m
+
 vcc vcc 0 15
 vin in 0 sin 0 7m 5k ; sinus 5khz
 rgen in we 200
@@ -16,10 +18,12 @@ ce e 0 100u
 cout c out 1u
 rload out 0 100k
 
+;.step param napiecie 1m 10m 0.1m
 .tran 1u 3m 2m 1u
 .four 5k V(rload)
 
 ;.probe
+;.print 
 
 ; Nalezy ustawic
 ; vin in 0 sin 0 7m 5k - czyli sinus 5kHz, amplitude dobrac empirycznie - pozmieniac

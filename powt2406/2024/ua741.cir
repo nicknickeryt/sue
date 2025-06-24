@@ -1,0 +1,30 @@
+BJT MS
+
+vcc vcc 0 15 
+
+vin in 0 ac 1
+c1 in b 100n
+
+rb1 vcc b 67k
+rb2 b 0 33k
+
+q1 c b e bc107
+
+.param res = 1k
+rc c vcc {res}
+re e 0 750
+ce e 0 1000u
+
+c2 c out 100n
+rload out 0 1g
+
+
+.model BC107 NPN(Is=40.72f Bf=407 Vaf=21.03 Ikf=1 Ise=40.72f Ne=1.305 Ikr=3.726 
++ Isc=594.8p Nc=2.033 Rc=1.393 Cje=12.5p Vje=.5391 Mje=.4869 Tf=441.1p Cjc=6p 
++ Mjc=.3821 Tr=114n Xtb=1.5 )
+
+.step param res 800 2k 1
+.ac dec 5 10 1G
+.probe
+
+.end
